@@ -8,36 +8,38 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js"></script>
   </head>
+  <!--add photos -->
   <body>
     <canvas id="pinkboard"></canvas>
     <div id="drag-container">
       <div id="spin-container">
         <img
-          src="https://i.ibb.co/JB5f0kG/341181651-199362539519406-6270288834356796092-n.jpg?fbclid=IwAR0gJp6WGBv_LXe-vJPYDqr4R54pVOlQ1IK63ZLACVwsf2TBy_RQr-qcLSc"
+          src="https://i.ibb.co/BZ0b7MY/363444278-3364079267142224-6162598278545134542-n.jpg"
           alt=""
         />
         <img
-          src="https://i.ibb.co/g9v8kMx/339135956-544219314502769-4537621970186799122-n.jpg"
+          src="https://i.ibb.co/PF8VT2r/363445798-1665589590582273-6364306670848000814-n.jpg"
           alt=""
         />
         <img
-          src="https://i.ibb.co/zNTpKVP/332691043-599567331571310-5129457793557068867-n.jpg"
+          src="https://i.ibb.co/gjyNj7P/363459497-872174647659233-6862229988514184487-n.jpg"
           alt=""
         />
         <img
-          src="https://i.ibb.co/qd1ZSvK/328145773-911439956707379-1031104036915725978-n.jpg"
+          src="https://i.ibb.co/9qqPGcJ/363063495-1322760504996692-98069080624449593-n.jpg"
           alt=""
         />
         <img
-          src="https://i.ibb.co/Y8dVgnB/309928283-166338046057737-4158301890077671605-n.jpg"
+          src="https://i.ibb.co/rd6L7Ch/362632636-291350940235286-7016193924467551358-n-2.jpg"
           alt=""
         />
         <img
-          src="https://i.ibb.co/1nXnpZ9/333473274-1107732067287844-1459736988626515617-n.jpg"
+          src="https://i.ibb.co/7vhdbqx/363515296-1381995065682509-5064991292478228464-n.jpg"
           alt=""
         />
+      
 
-        <!-- Example add video  -->
+        <!-- addd videos  -->
        
       </div>
       <div id="ground"></div>
@@ -56,29 +58,30 @@
     </div>
   </body>
   <script>
-    // You can change global variables here:
-    var radius = 240; // how big of the radius
-    var autoRotate = true; // auto rotate or not
-    var rotateSpeed = -60; // unit: seconds/360 degrees
-    var imgWidth = 120; // width of images (unit: px)
-    var imgHeight = 170; // height of images (unit: px)
+    // thay doi bien toan cuc o day cx dc
+    var radius = 365; // ban kinh 
+    var autoRotate = true; // tu dong xoay hay k xoay
+    var rotateSpeed = -50; // vdi : giay / do
+    var imgWidth = 152; // width of images (unit: px)
+    var imgHeight = 205; // height of images (unit: px)
 
-    // Link of background music - set 'null' if you dont want to play background music
+    // nhac nen
     var bgMusicURL =
       "https://api-v2.soundcloud.com/tracks/308486718/albums?representation=mini&client_id=jOJjarVXJfZlI309Up55k93EUDG7ILW6&limit=10&offset=0&linked_partitioning=1&app_version=1666004844&app_locale=en";
-    var bgMusicControls = false; // Show UI music control
+    var bgMusicControls = false // Show UI music control
 
     var settings = {
       particles: {
-        length: 500, // maximum amount of particles
+        length: 1500, // so luong trai tim max
+        							// iu nhieu de nhieu
 
-        duration: 2, // particle duration in sec
+        duration: 2.2, // particle duration in sec
 
-        velocity: 100, // particle velocity in pixels/sec
+        velocity: 150, // particle velocity in pixels/sec
 
-        effect: -0.75, // play with this for a nice effect
+        effect: -1.01, // chs thu de co hieu ung siu siu dep
 
-        size: 30, // particle size in pixels
+        size: 25, // kich thuoc hat
       },
     };
 
@@ -117,7 +120,7 @@
 
     /*
 
- * Point class
+ * lop diem
 
  */
 
@@ -381,7 +384,7 @@
 
         // create the fill
 
-        context.fillStyle = "#ea80b0";
+        context.fillStyle = "#e815be";
 
         context.fill();
 
@@ -403,7 +406,7 @@
 
         // update time
 
-        var newTime = new Date().getTime() / 1000,
+        var newTime = new Date().getTime() / 2000,
           deltaTime = newTime - (time || newTime);
 
         time = newTime;
@@ -456,16 +459,16 @@
     })(document.getElementById("pinkboard"));
 
     // ===================== start =======================
-    // animation start after 1000 miliseconds
-    setTimeout(init, 1000);
+    // hoat anh (chuyen dong ) bat dau sau 500 ms
+    setTimeout(init, 500);
 
     var odrag = document.getElementById("drag-container");
     var ospin = document.getElementById("spin-container");
     var aImg = ospin.getElementsByTagName("img");
     var aVid = ospin.getElementsByTagName("video");
-    var aEle = [...aImg, ...aVid]; // combine 2 arrays
+    var aEle = [...aImg, ...aVid]; // hop nhat 2 ar
 
-    // Size of images
+    // kich thuoc anh
     ospin.style.width = imgWidth + "px";
     ospin.style.height = imgHeight + "px";
 
